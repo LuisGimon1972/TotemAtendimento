@@ -1,0 +1,22 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Refrigerante Lata",
+      "value": 5.5,
+      "quantity": 12
+    },
+    {
+      "id": 2,
+      "name": "Hamburguer com cheddar e bacon",
+      "value": 37,
+      "quantity": 5
+    },
+    {
+      "id": 3,
+      "name": "X-salada com cheddar e mostarda",
+      "value": 18,
+      "quantity": 10
+    }
+  ]
+}

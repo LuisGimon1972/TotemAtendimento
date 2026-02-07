@@ -1,43 +1,79 @@
 <template>
-  <q-page class="row items-center justify-evenly">
-    <example-component
-      title="Example component"
-      active
-      :todos="todos"
-      :meta="meta"
-    ></example-component>
-  </q-page>
+  <div class="layout-principal">
+    <!-- TOPO -->
+    <div class="painel-superior">
+      <label class="textonome">Totem de Atendimento</label>
+
+      <div class="perfil">
+        <label class="texto">Dev. Luis Manuel Gimón</label>
+      </div>
+    </div>
+
+    <div class="layout-conteudo">
+      <!-- MENU LATERAL -->
+      <div class="painel-esquerdo">
+        <q-list padding>
+          <q-item clickable v-ripple to="/produtos">
+            <q-item-section avatar>
+              <q-icon name="restaurant_menu" />
+            </q-item-section>
+            <q-item-section>Produtos</q-item-section>
+          </q-item>
+
+          <q-item clickable v-ripple to="/carrinho">
+            <q-item-section avatar>
+              <q-icon name="shopping_cart" />
+            </q-item-section>
+            <q-item-section>Carrinho</q-item-section>
+          </q-item>
+        </q-list>
+
+        <q-separator spaced />
+
+        <q-list padding>
+          <q-item clickable v-ripple to="/configuracoes">
+            <q-item-section avatar>
+              <q-icon name="settings" />
+            </q-item-section>
+            <q-item-section>Configurações</q-item-section>
+          </q-item>
+
+          <q-item clickable v-ripple to="/sobre">
+            <q-item-section avatar>
+              <q-icon name="info_outline" />
+            </q-item-section>
+            <q-item-section>Sobre</q-item-section>
+          </q-item>
+        </q-list>
+      </div>
+
+      <!-- CONTEÚDO DINÂMICO -->
+      <div class="conteudo">
+        <router-view />
+      </div>
+    </div>
+  </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
-import type { Todo, Meta } from 'components/models';
-import ExampleComponent from 'components/ExampleComponent.vue';
+import { ref, watch, onMounted } from 'vue';
+import { useQuasar } from 'quasar';
 
-const todos = ref<Todo[]>([
-  {
-    id: 1,
-    content: 'ct1',
-  },
-  {
-    id: 2,
-    content: 'ct2',
-  },
-  {
-    id: 3,
-    content: 'ct3',
-  },
-  {
-    id: 4,
-    content: 'ct4',
-  },
-  {
-    id: 5,
-    content: 'ct5',
-  },
-]);
+const $q = useQuasar();
 
-const meta = ref<Meta>({
-  totalCount: 1200,
+/* 🌙 Tema escuro */
+const modoEscuro = ref($q.dark.isActive);
+
+watch(modoEscuro, (valor) => {
+  $q.dark.set(valor);
+  localStorage.setItem('modoEscuro', JSON.stringify(valor));
+});
+
+onMounted(() => {
+  const temaSalvo = localStorage.getItem('modoEscuro');
+  if (temaSalvo !== null) {
+    modoEscuro.value = JSON.parse(temaSalvo);
+    $q.dark.set(modoEscuro.value);
+  }
 });
 </script>
