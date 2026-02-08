@@ -66,14 +66,13 @@ body {
 .painel-esquerdo {
   width: 18%;
   border-radius: 1px 20px 0 0;
-  background-color: rgb(1, 14, 59); /* azul */
+  background-color: rgb(1, 14, 59);
   color: white;
   box-sizing: border-box;
   text-align: left;
   transition: background-color 0.3s ease;
 }
 
-/* DARK MODE */
 .body--dark .painel-esquerdo {
   background-color: #2e2d2d;
 }
@@ -92,8 +91,6 @@ body {
   color: white;
 }
 
-/* Conteúdo padrão */
-
 .conteudo {
   width: 100%;
   background-color: white;
@@ -101,8 +98,6 @@ body {
   padding: 20px;
   box-sizing: border-box;
 }
-
-/* Conteúdo Configurações no dark */
 
 .perfil {
   display: flex;
@@ -128,7 +123,7 @@ body {
 }
 
 .botao-danger {
-  background-color: #dc2626; /* vermelho elegante */
+  background-color: #dc2626;
   color: #fff;
 }
 

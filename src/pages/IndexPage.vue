@@ -1,6 +1,5 @@
 <template>
   <div class="layout-principal">
-    <!-- TOPO -->
     <div class="painel-superior">
       <div class="row left q-my-md">
         <label class="textonome">Totem de Atendimento Senior</label>
@@ -12,7 +11,6 @@
     </div>
 
     <div class="layout-conteudo">
-      <!-- MENU LATERAL -->
       <div class="painel-esquerdo">
         <br />
         <q-list padding>
@@ -50,7 +48,6 @@
         </q-list>
       </div>
 
-      <!-- CONTEÚDO DINÂMICO -->
       <div class="conteudo">
         <router-view />
       </div>
@@ -58,25 +55,4 @@
   </div>
 </template>
 
-<script setup lang="ts">
-import { ref, watch, onMounted } from 'vue';
-import { useQuasar } from 'quasar';
-
-const $q = useQuasar();
-
-/* 🌙 Tema escuro */
-const modoEscuro = ref($q.dark.isActive);
-
-watch(modoEscuro, (valor) => {
-  $q.dark.set(valor);
-  localStorage.setItem('modoEscuro', JSON.stringify(valor));
-});
-
-onMounted(() => {
-  const temaSalvo = localStorage.getItem('modoEscuro');
-  if (temaSalvo !== null) {
-    modoEscuro.value = JSON.parse(temaSalvo);
-    $q.dark.set(modoEscuro.value);
-  }
-});
-</script>
+<script setup lang="ts"></script>

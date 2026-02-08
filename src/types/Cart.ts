@@ -7,11 +7,9 @@ export const useCartStore = defineStore('cart', {
     items: [] as { product: Product; quantity: number }[],
   }),
   actions: {
-    // CartStore
     add(product: Product) {
       const existing = this.items.find((i) => i.product.id === product.id);
 
-      // quantidade no carrinho
       const quantidadeNoCarrinho = existing ? existing.quantity : 0;
 
       if (quantidadeNoCarrinho < product.quantity) {
@@ -29,14 +27,12 @@ export const useCartStore = defineStore('cart', {
     remove(productId: number) {
       const item = this.items.find((i) => i.product.id === productId);
       if (item) {
-        // ao remover do carrinho, devolve a quantidade ao estoque
         item.product.quantity += item.quantity;
       }
       this.items = this.items.filter((i) => i.product.id !== productId);
     },
 
     clear() {
-      // devolve todos os itens ao estoque antes de limpar
       this.items.forEach((i) => {
         i.product.quantity += i.quantity;
       });

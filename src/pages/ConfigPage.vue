@@ -24,7 +24,6 @@ import { useQuasar } from 'quasar';
 
 const $q = useQuasar();
 
-/* 🌙 Tema escuro */
 const modoEscuro = ref($q.dark.isActive);
 
 watch(modoEscuro, (valor) => {
