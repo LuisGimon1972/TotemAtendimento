@@ -389,3 +389,8 @@ body {
   font-size: 20px;
   color: #0f172a;
 }
+
+.btn-adicionar {
+  text-transform: none !important;
+  text-transform: capitalize; /* se quiser apenas a primeira letra maiúscula */
+}

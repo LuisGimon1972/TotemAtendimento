@@ -2,33 +2,32 @@
   <div class="q-pa-md">
     <div class="text-h5 q-mb-md">Selecione seus produtos</div>
 
-    <!-- LOADING -->
     <div v-if="loading" class="row justify-center q-my-xl">
       <q-spinner size="50px" />
     </div>
 
-    <!-- ERRO -->
     <q-banner v-if="error" class="bg-red-2 text-red-9 q-mb-md" rounded>
       {{ error }}
     </q-banner>
 
-    <!-- LISTA DE PRODUTOS -->
     <div class="row q-col-gutter-lg">
       <div v-for="product in products" :key="product.id" class="col-12 col-sm-6 col-md-4">
-        <q-card class="q-pa-md full-height" :class="{ 'opacity-50': product.quantity === 0 }">
+        <q-card class="q-pa-md full-height" :class="{ 'opacity-50': estoqueVisivel(product) <= 0 }">
           <q-card-section>
             <div class="text-h6">{{ product.name }}</div>
             <div class="text-subtitle1 text-bold">R$ {{ product.value.toFixed(2) }}</div>
-            <div class="text-caption">Estoque: {{ product.quantity }}</div>
+            <div class="text-caption">Estoque: {{ estoqueVisivel(product) }}</div>
           </q-card-section>
 
           <q-card-actions align="right">
             <q-btn
               label="Adicionar"
               color="primary"
+              rounded
               size="lg"
-              :disable="product.quantity === 0"
+              :disable="estoqueVisivel(product) <= 0"
               @click="addToCart(product)"
+              class="btn-adicionar"
             />
           </q-card-actions>
         </q-card>
@@ -39,19 +38,42 @@
 
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
-import { api } from 'src/servicios/Api';
-import { useCartStore } from 'src/tipos/Cart';
-import type { Product } from 'src/tipos/Produtos';
+import { useQuasar } from 'quasar';
+import { useCartStore } from 'src/types/Cart';
+import type { Product } from 'src/types/Products';
 import type { AxiosError } from 'axios';
+import { api } from 'src/services/Api';
 
 const products = ref<Product[]>([]);
 const loading = ref(false);
 const error = ref<string | null>(null);
 
 const cart = useCartStore();
+const $q = useQuasar();
+
+const estoqueVisivel = (product: Product) => {
+  const itemNoCarrinho = cart.items.find((i) => i.product.id === product.id);
+  return product.quantity - (itemNoCarrinho?.quantity || 0);
+};
 
 const addToCart = (product: Product) => {
-  cart.add(product);
+  if (estoqueVisivel(product) > 0) {
+    cart.add(product);
+
+    $q.notify({
+      message: `${product.name} adicionado ao carrinho!`,
+      color: 'green',
+      position: 'top-right',
+      timeout: 1500,
+    });
+  } else {
+    $q.notify({
+      message: `Quantidade indisponível do produto ${product.name} no estoque!`,
+      color: 'red',
+      position: 'top-right',
+      timeout: 2000,
+    });
+  }
 };
 
 const loadProducts = async () => {
