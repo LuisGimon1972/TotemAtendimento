@@ -140,7 +140,7 @@ body {
   transform: scale(0.96);
 }
 
-/ .botao-danger:focus-visible {
+.botao-danger:focus-visible {
   outline: 2px solid #fecaca;
   outline-offset: 2px;
 }
