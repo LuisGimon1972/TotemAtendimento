@@ -1,6 +1,12 @@
 <template>
   <div class="q-pa-md">
-    <div class="text-h5 q-mb-md">Selecione seus produtos</div>
+    <div class="titulo row items-center q-mb-mdrow items-center q-mb-md">
+      <q-icon name="inventory_2" size="32px" class="q-mr-sm" />
+      <span class="text-h5">Produtos</span>
+    </div>
+    <br />
+    <br />
+    <div class="titulo row items-center q-mb-md text-h5 q-mb-md">Selecione seus produtos</div>
 
     <div v-if="loading" class="row justify-center q-my-xl">
       <q-spinner size="50px" />
@@ -25,7 +31,6 @@
               color="primary"
               rounded
               size="lg"
-              :disable="estoqueVisivel(product) <= 0"
               @click="addToCart(product)"
               class="btn-adicionar"
             />
@@ -68,7 +73,7 @@ const addToCart = (product: Product) => {
     });
   } else {
     $q.notify({
-      message: `Quantidade indisponível do produto ${product.name} no estoque!`,
+      message: `Quantidade indisponível no estoque do produto ${product.name}!`,
       color: 'red',
       position: 'top-right',
       timeout: 2000,

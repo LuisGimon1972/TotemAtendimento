@@ -2,7 +2,7 @@
   <div class="q-pa-md">
     <div class="titulo row items-center q-gutter-sm q-mb-md">
       <q-icon name="settings" size="32px" />
-      <span class="text-h6">Configurações</span>
+      <span class="text-h5">Configurações</span>
     </div>
 
     <q-card style="max-width: 500px">

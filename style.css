@@ -43,10 +43,6 @@ body {
   margin: 0;
 }
 
-.sobre {
-  color: black;
-}
-
 .usuario {
   margin: 0;
   white-space: nowrap;
@@ -67,7 +63,6 @@ body {
   min-height: 80vh;
 }
 
-/* Painel esquerdo */
 .painel-esquerdo {
   width: 18%;
   border-radius: 1px 20px 0 0;
@@ -92,33 +87,9 @@ body {
   background-color: #1a1919;
 }
 
-.body--dark .btn-historico-suave,
-.body--dark .historicopes,
 .body--dark .titulo,
-.body--dark .catego,
-.body--dark .resultado,
-.body--dark .sobre,
 .body--dark .mensagem-vazia {
   color: white;
-}
-
-.body--dark .botao-categoria {
-  background-color: #010714; /* azul/preto elegante */
-  color: #e5e7eb; /* texto claro */
-}
-
-/* Dark mode para painéis */
-.resultado {
-  margin-top: 10px;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-size: 1.5rem;
-  margin-bottom: 30px;
-  color: green;
-}
-
-.catego {
-  font-size: 8px;
-  color: black;
 }
 
 /* Conteúdo padrão */
@@ -145,7 +116,7 @@ body {
 }
 
 .textonome {
-  margin-left: 170px;
+  margin-left: 520px;
   font-weight: normal;
   font-size: 2rem;
 }
@@ -156,51 +127,20 @@ body {
   height: auto;
 }
 
-.botao-azul {
-  background-color: #005bff;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 16px;
-}
-
-.botao-esquerda {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  margin-left: 40px;
-
-  padding: 6px 14px;
-  font-size: 14px;
-  font-weight: 500;
-
-  border: none;
-  border-radius: 6px;
-
-  cursor: pointer;
-  transition: all 0.2s ease;
-  margin-bottom: 10ox#0f172a;
-}
-
 .botao-danger {
   background-color: #dc2626; /* vermelho elegante */
   color: #fff;
 }
 
-/* Hover */
 .botao-danger:hover {
   background-color: #b91c1c;
 }
 
-/* Clique */
 .botao-danger:active {
   transform: scale(0.96);
 }
 
-/* Foco (acessibilidade) */
-.botao-danger:focus-visible {
+/ .botao-danger:focus-visible {
   outline: 2px solid #fecaca;
   outline-offset: 2px;
 }
@@ -272,125 +212,15 @@ body {
   transform: scale(1.2);
 }
 
-.galeria-gifs {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  gap: 12px;
-  background: white;
-}
-
-.gif-container {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 1 / 1; /* 🔥 mantém todas quadradas */
-  overflow: hidden;
-  border-radius: 10px;
-  background: #0d0d0d;
-}
-
-.botao-favorito {
-  position: absolute;
-  top: 6px;
-  right: 6px;
-  background: rgba(0, 0, 0, 0.65);
-  color: white;
-}
-
-.gif-container {
-  position: relative;
-  aspect-ratio: 1 / 1;
-  overflow: hidden;
-  border-radius: 10px;
-}
-
-.gif-imagem {
-  width: 100%;
-  height: 100%;
-}
-
-/* 🔥 ESSENCIAL */
-.botao-favorito {
-  position: absolute;
-  top: 8px;
-  right: 8px;
-  z-index: 10; /* garante sobreposição */
-  background: rgba(0, 0, 0, 0.65);
-  color: white;
-}
-
-.btn-historico-suave {
-  background-color: rgba(216, 32, 32, 0.08);
-  border-radius: 8px;
-}
-
-.body--dark .btn-historico-termo {
-  opacity: 0.95;
-}
-
-.btn-voltar-categorias {
-  background-color: rgba(2, 68, 189, 0.08);
-  border-radius: 8px;
-  margin-bottom: 10px;
-  transition: background-color 0.2s ease;
-}
-
-.btn-voltar-categorias:hover {
-  background-color: rgba(2, 68, 189, 0.15);
-}
-
-.body--dark .btn-voltar-categorias {
-  background-color: rgba(2, 68, 189, 0.2);
-}
-
-.botao-categoria {
-  transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease,
-    background-color 0.2s ease;
-}
-
-.botao-categoria:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
-}
-
 .ripple-suave .q-ripple__inner {
   opacity: 0.25;
-}
-
-.alinhar {
-  text-align: justify;
-  text-indent: 2em;
-  font-size: 16px;
-  margin-top: 20px;
-  margin-left: 40px;
-  margin-right: 40px;
-}
-
-.alinharcentro {
-  text-align: center;
-  padding-left: 10px;
-  font-size: 16px;
 }
 
 .justificar {
   text-align: justify;
 }
 
-.historico {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 5px;
-  margin-top: 5px;
-}
-
-.historicopes {
-  font-weight: bold;
-  font-size: 20px;
-  color: #0f172a;
-}
-
 .btn-adicionar {
   text-transform: none !important;
-  text-transform: capitalize; /* se quiser apenas a primeira letra maiúscula */
+  text-transform: capitalize;
 }

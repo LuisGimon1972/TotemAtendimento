@@ -2,7 +2,9 @@
   <div class="layout-principal">
     <!-- TOPO -->
     <div class="painel-superior">
-      <label class="textonome">Totem de Atendimento</label>
+      <div class="row left q-my-md">
+        <label class="textonome">Totem de Atendimento Senior</label>
+      </div>
 
       <div class="perfil">
         <label class="texto">Dev. Luis Manuel Gimón</label>
@@ -12,10 +14,11 @@
     <div class="layout-conteudo">
       <!-- MENU LATERAL -->
       <div class="painel-esquerdo">
+        <br />
         <q-list padding>
           <q-item clickable v-ripple to="/produtos">
             <q-item-section avatar>
-              <q-icon name="restaurant_menu" />
+              <q-icon name="inventory_2" />
             </q-item-section>
             <q-item-section>Produtos</q-item-section>
           </q-item>
@@ -24,11 +27,11 @@
             <q-item-section avatar>
               <q-icon name="shopping_cart" />
             </q-item-section>
-            <q-item-section>Carrinho</q-item-section>
+            <q-item-section>Carrinho de Compras</q-item-section>
           </q-item>
         </q-list>
 
-        <q-separator spaced />
+        <q-separator color="grey-3" class="q-my-lg" />
 
         <q-list padding>
           <q-item clickable v-ripple to="/configuracoes">
