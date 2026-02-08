@@ -1,41 +1,64 @@
 <template>
   <div class="q-pa-md">
-    <div class="titulo row items-center q-mb-md">
-      <q-icon name="shopping_cart" size="48px" class="q-mr-sm" />
+    <!-- Título -->
+    <div class="titulo row q-gutter-sm q-mb-md">
+      <q-icon name="shopping_cart" size="32px" class="q-mr-sm" />
       <span class="text-h5">Carrinho de compras</span>
     </div>
-    <br />
-    <br />
-    <div class="titulo row items-center q-mb-md" v-if="cart.items.length === 0">
-      <q-icon name="shopping_cart" size="48px" color="grey-5" />
-      <h5>Seu carrinho está vazio!</h5>
+
+    <!-- Carrinho vazio -->
+    <div
+      v-if="cart.items.length === 0"
+      class="column items-center justify-center q-pa-xl text-grey-6"
+    >
+      <q-icon name="remove_shopping_cart" size="64px" class="q-mb-md" />
+      <div class="text-h6">Seu carrinho está vazio</div>
+      <div class="text-caption">Adicione produtos para continuar</div>
     </div>
 
-    <q-list v-else>
-      <div class="titulo row items-center q-mb-md text-h5 q-mb-md">Produtos selecionados</div>
-      <q-item v-for="item in cart.items" :key="item.product.id">
-        <q-item-section>
-          {{ item.product.name }} x {{ item.quantity }} - R$
-          {{ (item.product.value * item.quantity).toFixed(2) }}
-        </q-item-section>
-        <q-item-section side>
-          <q-btn flat icon="delete" @click="removeItem(item)" />
-        </q-item-section>
-      </q-item>
-    </q-list>
+    <!-- Lista de produtos -->
+    <div v-else>
+      <div class="text-subtitle1 q-mb-md text-weight-medium">Produtos selecionados</div>
 
-    <div v-if="cart.items.length != 0" class="titulo row items-center q-mt-md text-h6">
-      Total: R$ {{ cart.total.toFixed(2) }}
-    </div>
-    <div v-if="cart.items.length != 0">
-      <q-btn
-        color="primary"
-        label="Finalizar Pedido"
-        rounded
-        class="q-mt-md"
-        @click="checkout"
-        :disable="cart.items.length === 0"
-      />
+      <q-card v-for="item in cart.items" :key="item.product.id" class="q-mb-sm" flat bordered>
+        <q-card-section class="row items-center justify-between">
+          <div>
+            <div class="text-body1">
+              {{ item.product.name }}
+            </div>
+            <div class="text-caption text-grey-6">
+              {{ item.quantity }} × R$ {{ item.product.value.toFixed(2) }}
+            </div>
+          </div>
+
+          <div class="row items-center">
+            <div class="text-weight-medium q-mr-md">
+              R$ {{ (item.product.value * item.quantity).toFixed(2) }}
+            </div>
+            <q-btn flat round color="negative" icon="delete" @click="removeItem(item)" />
+          </div>
+        </q-card-section>
+      </q-card>
+
+      <!-- Total -->
+      <q-separator spaced />
+
+      <div class="row items-center justify-between q-mt-md">
+        <div class="text-h6">Total</div>
+        <div class="text-h6 text-weight-bold">R$ {{ cart.total.toFixed(2) }}</div>
+      </div>
+
+      <!-- Botão finalizar -->
+      <div class="row justify-end q-mt-lg">
+        <q-btn
+          color="primary"
+          size="lg"
+          rounded
+          label="Finalizar pedido"
+          icon-right="check_circle"
+          @click="checkout"
+        />
+      </div>
     </div>
   </div>
 </template>

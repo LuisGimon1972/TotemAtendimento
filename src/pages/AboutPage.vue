@@ -8,9 +8,9 @@
     <q-card>
       <q-card-section>
         <p class="q-mb-md">
-          O <strong>Totem de Atendimento</strong> é uma aplicação front-end que simula a experiência
-          de uso de um <strong>totem físico de autoatendimento</strong>, consumindo uma API de
-          pedidos e produtos. O sistema permite ao usuário visualizar produtos disponíveis,
+          O <strong>Totem de Atendimento Senior</strong> é uma aplicação front-end que simula a
+          experiência de uso de um <strong>totem físico de autoatendimento</strong>, consumindo uma
+          API de pedidos e produtos. O sistema permite ao usuário visualizar produtos disponíveis,
           selecionar quantidades e finalizar pedidos de forma simples e intuitiva.
         </p>
 

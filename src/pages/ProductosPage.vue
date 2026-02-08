@@ -2,7 +2,7 @@
   <div class="q-pa-md">
     <div class="titulo row items-center q-mb-mdrow items-center q-mb-md">
       <q-icon name="inventory_2" size="32px" class="q-mr-sm" />
-      <span class="text-h5">Produtos</span>
+      <span class="text-h5">Produtos disponíveis</span>
     </div>
     <br />
     <br />
