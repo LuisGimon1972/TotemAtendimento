@@ -1,11 +1,12 @@
 <template>
+  <h4 style="text-align: center">Bem-vindo, {{ nomeUsuario }}</h4>
+
   <div class="q-pa-md">
-    <div class="titulo row items-center q-mb-mdrow items-center q-mb-md">
-      <q-icon name="inventory_2" size="32px" class="q-mr-sm" />
-      <span class="text-h5">Produtos disponíveis</span>
+    <div class="titulo row items-center justify-center q-mb-md">
+      <q-icon name="inventory_2" size="36px" class="q-mr-sm" />
+      <span class="text-h4">Produtos disponíveis</span>
     </div>
-    <br />
-    <br />
+
     <div class="titulo row items-center q-mb-md text-h5 q-mb-md">Selecione seus produtos</div>
 
     <div v-if="loading" class="row justify-center q-my-xl">
@@ -18,11 +19,14 @@
 
     <div class="row q-col-gutter-lg">
       <div v-for="product in products" :key="product.id" class="col-12 col-sm-6 col-md-4">
-        <q-card class="q-pa-md full-height" :class="{ 'opacity-50': estoqueVisivel(product) <= 0 }">
+        <q-card
+          class="totem-card q-pa-md full-height"
+          :class="{ 'opacity-50': estoqueVisivel(product) <= 0 }"
+        >
           <q-card-section>
-            <div class="text-h6">{{ product.name }}</div>
-            <div class="text-subtitle1 text-bold">R$ {{ product.value.toFixed(2) }}</div>
-            <div class="text-caption">Estoque: {{ estoqueVisivel(product) }}</div>
+            <div style="color: blue" class="text-h5">{{ product.name }}</div>
+            <div class="text-h6 text-bold">R$ {{ product.value.toFixed(2) }}</div>
+            <div class="text-h6">Estoque: {{ estoqueVisivel(product) }}</div>
           </q-card-section>
 
           <q-card-actions align="right">
@@ -31,19 +35,33 @@
               color="primary"
               rounded
               size="lg"
+              class="btn-adicionar full-width"
               @click="addToCart(product)"
-              class="btn-adicionar"
             />
           </q-card-actions>
         </q-card>
       </div>
     </div>
   </div>
+
+  <div class="q-pa-md row justify-center">
+    <q-btn
+      color="primary"
+      label="Ver Carrinho"
+      size="xl"
+      rounded
+      icon="shopping_cart"
+      class="full-width q-mt-lg"
+      :disable="cart.items.length === 0"
+      @click="irParaCarrinho"
+    />
+  </div>
 </template>
 
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
 import { useQuasar } from 'quasar';
+import { useRouter } from 'vue-router';
 import { useCartStore } from 'src/types/Cart';
 import type { Product } from 'src/types/Products';
 import type { AxiosError } from 'axios';
@@ -96,5 +114,22 @@ const loadProducts = async () => {
   }
 };
 
+const router = useRouter();
+
+const irParaCarrinho = async () => {
+  if (cart.items.length === 0) return; // proteção extra
+  await router.push('/carrinho');
+};
+const nomeUsuario = ref('');
+
+onMounted(() => {
+  nomeUsuario.value = localStorage.getItem('nomeUsuario') || '';
+});
 onMounted(loadProducts);
 </script>
+
+<style scoped>
+.totem-card {
+  border-radius: 20px;
+}
+</style>

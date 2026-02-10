@@ -1,58 +1,67 @@
 <template>
-  <div class="layout-principal">
-    <div class="painel-superior">
-      <div class="row left q-my-md">
-        <label class="textonome">Totem de Atendimento Senior</label>
+  <div class="totem-welcome column items-center justify-center">
+    <q-card class="totem-card q-pa-xl">
+      <!-- Título -->
+      <br />
+      <br />
+      <div class="row items-center justify-center q-mb-lg">
+        <q-icon name="point_of_sale" size="80px" class="q-mr-sm" />
+        <span class="text-h4">TOTEM DE ATENDIMENTO</span>
       </div>
-
-      <div class="perfil">
-        <label class="texto">Dev. Luis Manuel Gimón</label>
-      </div>
-    </div>
-
-    <div class="layout-conteudo">
-      <div class="painel-esquerdo">
-        <br />
-        <q-list padding>
-          <q-item clickable v-ripple to="/produtos">
-            <q-item-section avatar>
-              <q-icon name="inventory_2" />
-            </q-item-section>
-            <q-item-section>Produtos</q-item-section>
-          </q-item>
-
-          <q-item clickable v-ripple to="/carrinho">
-            <q-item-section avatar>
-              <q-icon name="shopping_cart" />
-            </q-item-section>
-            <q-item-section>Carrinho de Compras</q-item-section>
-          </q-item>
-        </q-list>
-
-        <q-separator color="grey-3" class="q-my-lg" />
-
-        <q-list padding>
-          <q-item clickable v-ripple to="/configuracoes">
-            <q-item-section avatar>
-              <q-icon name="settings" />
-            </q-item-section>
-            <q-item-section>Configurações</q-item-section>
-          </q-item>
-
-          <q-item clickable v-ripple to="/sobre">
-            <q-item-section avatar>
-              <q-icon name="info_outline" />
-            </q-item-section>
-            <q-item-section>Sobre</q-item-section>
-          </q-item>
-        </q-list>
-      </div>
-
-      <div class="conteudo">
-        <router-view />
-      </div>
-    </div>
+      <br />
+      <!-- Nome -->
+      <q-input
+        v-model="nome"
+        filled
+        rounded
+        autofocus
+        label="Digite seu nome"
+        class="q-mb-xl"
+        style="font-size: 1.5rem; height: 70px"
+      />
+      <br />
+      <br />
+      <!-- Botão Começar -->
+      <q-btn
+        label="Começar Atendimento"
+        color="primary"
+        rounded
+        size="lg"
+        class="full-width"
+        :disable="!nome.trim()"
+        @click="iniciarAtendimento"
+      />
+    </q-card>
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { ref } from 'vue';
+import { useRouter } from 'vue-router';
+
+const nome = ref('');
+const router = useRouter();
+
+const iniciarAtendimento = async () => {
+  const nomeTrimado = nome.value.trim();
+  if (!nomeTrimado) return;
+
+  localStorage.setItem('nomeUsuario', nomeTrimado);
+  await router.push('/produtos');
+};
+</script>
+
+<style scoped>
+.totem-welcome {
+  height: 100vh;
+  background: linear-gradient(135deg, #1976d2, #42a5f5);
+}
+
+.totem-card {
+  width: 100%;
+  max-width: 700px; /* aumentei de 420px para 600px */
+  min-height: 500px; /* opcional: define altura mínima */
+  border-radius: 20px;
+  padding: 2rem; /* aumenta o espaçamento interno */
+}
+</style>
