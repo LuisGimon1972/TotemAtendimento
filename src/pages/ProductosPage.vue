@@ -129,3 +129,9 @@ onMounted(() => {
 });
 onMounted(loadProducts);
 </script>
+
+<style scoped>
+.totem-card {
+  border-radius: 20px;
+}
+</style>

@@ -99,34 +99,34 @@ const removeItem = (item: { product: Product; quantity: number }) => {
 const checkout = async () => {
   if (cart.items.length === 0) return;
 
-  const items = cart.items.map((i) => ({
-    productId: i.product.id,
-    quantity: i.quantity,
-  }));
-
   try {
-    const response = await api.post('/orders', { items });
+    await api.post('/orders', {
+      items: cart.items.map((i) => ({
+        productId: i.product.id,
+        quantity: i.quantity,
+      })),
+    });
+
+    await Promise.all(
+      cart.items.map((i) =>
+        api.patch(`/products/${i.product.id}`, {
+          quantity: i.product.quantity - i.quantity,
+        }),
+      ),
+    );
 
     $q.notify({
-      message: response.data.message || 'Pedido realizado com sucesso! 🎉',
+      message: 'Pedido realizado com sucesso! 🎉',
       color: 'green',
       position: 'top-right',
-      timeout: 2000,
     });
 
     cart.clear();
-  } catch (err: unknown) {
+  } catch (err) {
     console.error(err);
-    let message = 'Erro ao finalizar o pedido';
-    if (err && typeof err === 'object' && 'response' in err) {
-      const response = (err as { response?: { data?: { message?: string } } }).response;
-      message = response?.data?.message ?? message;
-    }
     $q.notify({
-      message,
+      message: 'Erro ao finalizar o pedido',
       color: 'red',
-      position: 'top-right',
-      timeout: 2000,
     });
   }
 };

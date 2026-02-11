@@ -1,15 +1,17 @@
 <template>
   <div class="totem-welcome column items-center justify-center">
     <q-card class="totem-card q-pa-xl">
-      <!-- Título -->
       <br />
       <br />
-      <div class="row items-center justify-center q-mb-lg">
-        <q-icon name="point_of_sale" size="80px" class="q-mr-sm" />
-        <span class="text-h4">TOTEM DE ATENDIMENTO</span>
+      <div
+        style="margin-top: -30px; color: blue"
+        class="color blue9 row items-center justify-center q-mb-lg"
+      >
+        <q-icon name="desktop_windows" size="85px" class="q-mr-sm" />
+        <span class="text-h3">TOTEM DE ATENDIMENTO</span>
       </div>
       <br />
-      <!-- Nome -->
+
       <q-input
         v-model="nome"
         filled
@@ -21,7 +23,7 @@
       />
       <br />
       <br />
-      <!-- Botão Começar -->
+
       <q-btn
         label="Começar Atendimento"
         color="primary"
