@@ -61,9 +61,9 @@ const iniciarAtendimento = async () => {
 
 .totem-card {
   width: 100%;
-  max-width: 700px; /* aumentei de 420px para 600px */
-  min-height: 500px; /* opcional: define altura mínima */
+  max-width: 700px;
+  min-height: 500px;
   border-radius: 20px;
-  padding: 2rem; /* aumenta o espaçamento interno */
+  padding: 2rem;
 }
 </style>

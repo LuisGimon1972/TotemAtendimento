@@ -1,15 +1,12 @@
 <template>
   <div class="totem-page">
     <div class="q-pa-md">
-      <!-- Título -->
       <div class="titulo row items-center justify-between q-mb-md">
-        <!-- Esquerda: ícone + título -->
         <div class="row items-center">
           <q-icon name="shopping_cart" size="34px" class="q-mr-sm" />
           <span class="text-h4">Carrinho de compras</span>
         </div>
 
-        <!-- Direita: botão -->
         <q-btn
           label="Voltar para Atendimento"
           icon="arrow_back"
@@ -20,7 +17,6 @@
         />
       </div>
 
-      <!-- Carrinho vazio -->
       <div
         v-if="cart.items.length === 0"
         class="column items-center justify-center q-pa-xl text-grey-6"
@@ -30,7 +26,6 @@
         <div class="text-caption">Adicione produtos para continuar</div>
       </div>
 
-      <!-- Lista de produtos -->
       <div v-else>
         <div class="text-h4 q-mb-md text-weight-medium">Produtos selecionados</div>
 
@@ -54,7 +49,6 @@
           </q-card-section>
         </q-card>
 
-        <!-- Total -->
         <q-separator spaced />
 
         <div class="row items-center justify-between q-mt-md">
@@ -62,7 +56,6 @@
           <div class="text-h4 text-weight-bold">R$ {{ cart.total.toFixed(2) }}</div>
         </div>
 
-        <!-- Botão finalizar -->
         <div class="row justify-end q-mt-lg">
           <q-btn
             color="blue-10"

@@ -34,7 +34,7 @@
       "id": "6",
       "name": "Refrigerante Guarana 350 ml",
       "value": 5.6,
-      "quantity": 42
+      "quantity": 40
     }
   ],
   "orders": [
@@ -907,6 +907,15 @@
       "items": [
         {
           "productId": "5",
+          "quantity": 2
+        }
+      ]
+    },
+    {
+      "id": "1faf",
+      "items": [
+        {
+          "productId": "6",
           "quantity": 2
         }
       ]

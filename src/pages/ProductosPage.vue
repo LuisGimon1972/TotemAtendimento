@@ -133,7 +133,7 @@ const loadProducts = async () => {
 const router = useRouter();
 
 const irParaCarrinho = async () => {
-  if (cart.items.length === 0) return; // proteção extra
+  if (cart.items.length === 0) return;
   await router.push('/carrinho');
 };
 const nomeUsuario = ref('');
