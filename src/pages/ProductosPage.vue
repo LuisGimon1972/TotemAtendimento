@@ -3,9 +3,23 @@
     <h4 style="text-align: center; margin-top: -5px">Bem-vindo, {{ nomeUsuario }}</h4>
 
     <div class="q-pa-md">
-      <div style="margin-top: -70px" class="titulo row item-center q-gutter-sm q-mb-md">
-        <q-icon name="inventory_2" size="36px" class="q-mr-sm" />
-        <span class="text-h4">Produtos disponíveis</span>
+      <div
+        style="margin-top: -70px"
+        class="titulo row items-center justify-between q-gutter-sm q-mb-md"
+      >
+        <div class="row items-center">
+          <q-icon name="inventory_2" size="36px" class="q-mr-sm" />
+          <span class="text-h4">Produtos disponíveis</span>
+        </div>
+
+        <q-btn
+          label="Sair do Atendimento"
+          icon="exit_to_app"
+          color="primary"
+          rounded
+          size="lg"
+          @click="reiniciarAtendimento"
+        />
       </div>
 
       <div class="titulo row items-center q-mb-md text-h5 q-mb-md">Selecione seus produtos</div>
@@ -128,6 +142,10 @@ onMounted(() => {
   nomeUsuario.value = localStorage.getItem('nomeUsuario') || '';
 });
 onMounted(loadProducts);
+
+const reiniciarAtendimento = async () => {
+  await router.push('/');
+};
 </script>
 
 <style scoped>
