@@ -4,13 +4,13 @@
       "id": "1",
       "name": "Refrigerante Cocacola Lata 200 ml",
       "value": 5.5,
-      "quantity": 8
+      "quantity": 7
     },
     {
       "id": "2",
       "name": "Hamburguer",
       "value": 37,
-      "quantity": 2
+      "quantity": 1
     },
     {
       "id": "3",
@@ -34,7 +34,7 @@
       "id": "6",
       "name": "Refrigerante Guarana 350 ml",
       "value": 5.6,
-      "quantity": 36
+      "quantity": 34
     }
   ],
   "orders": [
@@ -1009,6 +1009,28 @@
         {
           "productId": "6",
           "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "c465",
+      "items": [
+        {
+          "productId": "2",
+          "quantity": 1
+        },
+        {
+          "productId": "1",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "ed1a",
+      "items": [
+        {
+          "productId": "6",
+          "quantity": 2
         }
       ]
     }
