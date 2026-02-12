@@ -1,15 +1,15 @@
 <template>
   <div class="totem-page">
-    <h4 style="text-align: center; margin-top: -5px">Bem-vindo, {{ nomeUsuario }}</h4>
+    <h4 style="text-align: center; margin-top: -5px; color: white">Bem-vindo, {{ nomeUsuario }}</h4>
 
     <div class="q-pa-md">
       <div
         style="margin-top: -70px"
         class="titulo row items-center justify-between q-gutter-sm q-mb-md"
       >
-        <div class="row items-center">
+        <div class="row items-center text-white">
           <q-icon name="inventory_2" size="36px" class="q-mr-sm" />
-          <span class="text-h4">Produtos disponíveis</span>
+          <span class="text-h4 text-white">Produtos disponíveis</span>
         </div>
 
         <q-btn
@@ -22,7 +22,9 @@
         />
       </div>
 
-      <div class="titulo row items-center q-mb-md text-h5 q-mb-md">Selecione seus produtos</div>
+      <div class="titulo row items-center q-mb-md text-h5 q-mb-md text-white">
+        Selecione seus produtos
+      </div>
 
       <div v-if="loading" class="row justify-center q-my-xl">
         <q-spinner size="50px" />

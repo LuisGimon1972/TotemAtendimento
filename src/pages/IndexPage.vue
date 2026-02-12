@@ -1,5 +1,5 @@
 <template>
-  <div class="totem-welcome column items-center justify-center">
+  <div class="totem-page column items-center justify-center">
     <q-card class="totem-card q-pa-xl">
       <br />
       <br />
@@ -18,6 +18,7 @@
         rounded
         autofocus
         label="Digite seu nome"
+        maxlength="40"
         class="q-mb-xl"
         style="font-size: 1.5rem; height: 70px"
       />

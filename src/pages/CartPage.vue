@@ -2,7 +2,7 @@
   <div class="totem-page">
     <div class="q-pa-md">
       <div class="titulo row items-center justify-between q-mb-md">
-        <div class="row items-center">
+        <div class="row items-center text-white">
           <q-icon name="shopping_cart" size="34px" class="q-mr-sm" />
           <span class="text-h4">Carrinho de compras</span>
         </div>
@@ -27,7 +27,7 @@
       </div>
 
       <div v-else>
-        <div class="text-h4 q-mb-md text-weight-medium">Produtos selecionados</div>
+        <div class="text-h4 q-mb-md text-weight-medium text-white">Produtos selecionados</div>
 
         <q-card v-for="item in cart.items" :key="item.product.id" class="q-mb-sm" flat bordered>
           <q-card-section class="row items-center justify-between">
@@ -51,7 +51,7 @@
 
         <q-separator spaced />
 
-        <div class="row items-center justify-between q-mt-md">
+        <div class="row items-center justify-between q-mt-md text-white">
           <div class="text-h4">Total</div>
           <div class="text-h4 text-weight-bold">R$ {{ cart.total.toFixed(2) }}</div>
         </div>
