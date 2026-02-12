@@ -1,16 +1,23 @@
 <template>
-  <div class="totem-page column items-center justify-center">
-    <q-card class="totem-card q-pa-xl">
-      <br />
-      <br />
+  <div class="totem-page column items-center justify-center q-pa-md">
+    <q-card class="totem-card">
       <div
-        style="margin-top: -30px; color: blue"
-        class="color blue9 row items-center justify-center q-mb-lg"
+        class="row items-center justify-center text-primary text-center q-mb-xl"
+        :class="$q.screen.lt.sm ? 'column' : 'row'"
       >
-        <q-icon name="desktop_windows" size="85px" class="q-mr-sm" />
-        <span class="text-h3">TOTEM DE ATENDIMENTO</span>
+        <q-icon
+          name="desktop_windows"
+          :size="$q.screen.lt.sm ? '50px' : $q.screen.lt.md ? '65px' : '85px'"
+          :class="$q.screen.lt.sm ? 'q-mb-sm' : 'q-mr-md'"
+        />
+
+        <span
+          :class="[$q.screen.lt.sm ? 'text-h6' : $q.screen.lt.md ? 'text-h5' : 'text-h3']"
+          class="text-weight-bold"
+        >
+          TOTEM DE ATENDIMENTO
+        </span>
       </div>
-      <br />
 
       <q-input
         v-model="nome"
@@ -19,16 +26,14 @@
         autofocus
         label="Digite seu nome"
         maxlength="40"
-        class="q-mb-xl"
-        style="font-size: 1.5rem; height: 70px"
+        class="q-mb-xl input-totem"
       />
-      <br />
-      <br />
 
       <q-btn
         label="Começar Atendimento"
         color="primary"
         rounded
+        unelevated
         size="lg"
         class="full-width"
         :disable="!nome.trim()"

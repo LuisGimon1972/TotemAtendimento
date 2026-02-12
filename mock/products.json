@@ -4,7 +4,7 @@
       "id": "1",
       "name": "Refrigerante Cocacola Lata 200 ml",
       "value": 5.5,
-      "quantity": 9
+      "quantity": 8
     },
     {
       "id": "2",
@@ -28,13 +28,13 @@
       "id": "5",
       "name": "Refrigerante Pepsi 500 ml",
       "value": 6.5,
-      "quantity": 66
+      "quantity": 62
     },
     {
       "id": "6",
       "name": "Refrigerante Guarana 350 ml",
       "value": 5.6,
-      "quantity": 40
+      "quantity": 36
     }
   ],
   "orders": [
@@ -961,6 +961,54 @@
         {
           "productId": "5",
           "quantity": 2
+        }
+      ]
+    },
+    {
+      "id": "e102",
+      "items": [
+        {
+          "productId": "5",
+          "quantity": 2
+        },
+        {
+          "productId": "6",
+          "quantity": 2
+        }
+      ]
+    },
+    {
+      "id": "3849",
+      "items": [
+        {
+          "productId": "5",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "3ca2",
+      "items": [
+        {
+          "productId": "1",
+          "quantity": 1
+        },
+        {
+          "productId": "5",
+          "quantity": 1
+        },
+        {
+          "productId": "6",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "b43d",
+      "items": [
+        {
+          "productId": "6",
+          "quantity": 1
         }
       ]
     }

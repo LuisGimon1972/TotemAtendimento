@@ -34,16 +34,24 @@
         {{ error }}
       </q-banner>
 
-      <div class="row q-col-gutter-lg">
-        <div v-for="product in products" :key="product.id" class="col-12 col-sm-6 col-md-4">
+      <div class="row q-col-gutter-lg justify-center">
+        <div
+          v-for="product in products"
+          :key="product.id"
+          class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-4"
+        >
           <q-card
             class="totem-card q-pa-md full-height"
             :class="{ 'opacity-50': estoqueVisivel(product) <= 0 }"
           >
             <q-card-section>
-              <div style="color: blue" class="text-h5">{{ product.name }}</div>
-              <div class="text-h6 text-bold">R$ {{ product.value.toFixed(2) }}</div>
-              <div class="text-h6">Estoque: {{ estoqueVisivel(product) }}</div>
+              <div class="text-h5 text-primary text-weight-bold">
+                {{ product.name }}
+              </div>
+
+              <div class="text-h6 text-weight-bold q-mt-sm">R$ {{ product.value.toFixed(2) }}</div>
+
+              <div class="text-subtitle1 q-mt-xs">Estoque: {{ estoqueVisivel(product) }}</div>
             </q-card-section>
 
             <q-card-actions align="right">
@@ -52,7 +60,8 @@
                 color="primary"
                 rounded
                 size="lg"
-                class="btn-adicionar full-width"
+                class="full-width"
+                :disable="estoqueVisivel(product) <= 0"
                 @click="addToCart(product)"
               />
             </q-card-actions>
