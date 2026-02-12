@@ -28,7 +28,7 @@
       "id": "5",
       "name": "Refrigerante Pepsi 500 ml",
       "value": 6.5,
-      "quantity": 68
+      "quantity": 66
     },
     {
       "id": "6",
@@ -948,6 +948,15 @@
     },
     {
       "id": "b0f7",
+      "items": [
+        {
+          "productId": "5",
+          "quantity": 2
+        }
+      ]
+    },
+    {
+      "id": "e9d5",
       "items": [
         {
           "productId": "5",

@@ -55,11 +55,6 @@ const iniciarAtendimento = async () => {
 </script>
 
 <style scoped>
-.totem-welcome {
-  height: 100vh;
-  background: linear-gradient(135deg, #1976d2, #42a5f5);
-}
-
 .totem-card {
   width: 100%;
   max-width: 700px;

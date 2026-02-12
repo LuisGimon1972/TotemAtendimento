@@ -7,7 +7,7 @@ html,
 
 .totem-page {
   min-height: 100vh;
-  background: linear-gradient(135deg, #131313, #262626);
+  background: linear-gradient(135deg, #0a0a0a, #262626);
   padding: 16px;
 }
 
